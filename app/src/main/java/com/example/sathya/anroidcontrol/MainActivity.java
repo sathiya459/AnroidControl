@@ -1,11 +1,14 @@
 package com.example.sathya.anroidcontrol;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -27,28 +30,59 @@ public class MainActivity extends Activity {
         StrictMode.setThreadPolicy(policy);
 
 
-        String url= "http://10.130.95.109/andriod/getstatus.php";
+        String url= "http://10.67.102.213/andriod/getstatus.php";
         //String url= "http://www.remoteelectric.t15.org/getstatus.php";
-        String resp="";
         HttpURLConnection conn = null;
+        String res="";
         try {
 
             URL call = new URL(url);
             conn = (HttpURLConnection) call.openConnection();
-
-            conn.setConnectTimeout(5000);
-            Toast.makeText(getApplicationContext(), "connected", Toast.LENGTH_SHORT).show();
+            conn.setConnectTimeout(10000);
             BufferedReader bf = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-           String  s;
+            String  s="";
             while((s=bf.readLine())!= null){
-                resp+=s;
+                res+=s;
             }
-            Toast.makeText(getApplicationContext(),resp,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),res,Toast.LENGTH_SHORT).show();
+            String[] resp=res.split("`");
+            if(resp[0].equals("success")){
+                if(resp[1].equals("1")){
+                    findViewById(R.id.button).setBackgroundColor(Color.GREEN);
+                }else{
+                    findViewById(R.id.button).setBackgroundColor(Color.RED);
+                }
+                if(resp[2].equals("1")){
+                    findViewById(R.id.button2).setBackgroundColor(Color.GREEN);
+                }else{
+                    findViewById(R.id.button2).setBackgroundColor(Color.RED);
+                }
+                if(resp[3].equals("1")){
+                    findViewById(R.id.button3).setBackgroundColor(Color.GREEN);
+                }else{
+                    findViewById(R.id.button3).setBackgroundColor(Color.RED);
+                }
+                if(resp[4].equals("1")){
+                    findViewById(R.id.button4).setBackgroundColor(Color.GREEN);
+                }else{
+                    findViewById(R.id.button4).setBackgroundColor(Color.RED);
+                }
+            }
         } catch (Exception e) {
 
             Toast.makeText(getApplicationContext(), "NOT connected :"+e,Toast.LENGTH_LONG).show();
+            findViewById(R.id.button).setBackgroundColor(Color.BLUE);
+            findViewById(R.id.button2).setBackgroundColor(Color.BLUE);
+            findViewById(R.id.button3).setBackgroundColor(Color.BLUE);
+            findViewById(R.id.button4).setBackgroundColor(Color.BLUE);
         }
-
+        Button b= (Button) findViewById(R.id.button);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              //  URL call=new URL()
+            }
+        });
 
 
 
