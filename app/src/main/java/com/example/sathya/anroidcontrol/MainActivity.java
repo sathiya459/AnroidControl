@@ -1,6 +1,7 @@
 package com.example.sathya.anroidcontrol;
 
 import android.app.Activity;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,34 +23,32 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //String url= "http://localhost/andriod/getstatus.php";
-        String url= "http://www.remoteelectric.t15.org/getstatus.php";
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+
+        String url= "http://10.130.95.109/andriod/getstatus.php";
+        //String url= "http://www.remoteelectric.t15.org/getstatus.php";
         String resp="";
+        HttpURLConnection conn = null;
         try {
 
             URL call = new URL(url);
-            HttpURLConnection conn = (HttpURLConnection) call.openConnection();
-            conn.setConnectTimeout(10000);
-            System.out.println("executing request...");
-            Toast.makeText(getApplicationContext(),"connected",Toast.LENGTH_SHORT).show();
-            BufferedReader bf=null;
-            InputStreamReader ips=null;
-            ips=new InputStreamReader(conn.getInputStream());
-            Toast.makeText(getApplicationContext(),"Stream  connected",Toast.LENGTH_SHORT).show();
-            bf=new BufferedReader(ips);
-            Toast.makeText(getApplicationContext(),"bf connected....",Toast.LENGTH_SHORT).show();
-            String s="";
-            while((s=bf.readLine()) != null){
-                resp=resp+s;
+            conn = (HttpURLConnection) call.openConnection();
+
+            conn.setConnectTimeout(5000);
+            Toast.makeText(getApplicationContext(), "connected", Toast.LENGTH_SHORT).show();
+            BufferedReader bf = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+           String  s;
+            while((s=bf.readLine())!= null){
+                resp+=s;
             }
+            Toast.makeText(getApplicationContext(),resp,Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
 
-
+            Toast.makeText(getApplicationContext(), "NOT connected :"+e,Toast.LENGTH_LONG).show();
         }
 
-        catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(),"NOT connected : ",Toast.LENGTH_LONG).show();
-        }
 
 
 
