@@ -81,11 +81,9 @@ public class MainActivity extends Activity {
             findViewById(R.id.button4).setBackgroundColor(Color.BLUE);
         }
         Button b= (Button) findViewById(R.id.button);
-
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  URL call=new URL()
                 if(value1 ==1){
                     pin="1";state="0";
                     url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
@@ -139,9 +137,180 @@ public class MainActivity extends Activity {
             }
         });
 
+        Button b2= (Button) findViewById(R.id.button2);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(value2 ==1){
+                    pin="2";state="0";
+                    url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
+                    String response="";
+                    try {
+                        URL call = new URL(url);
+                        HttpURLConnection conn =(HttpURLConnection) call.openConnection();
+                        conn.setConnectTimeout(10000);
+                        BufferedReader bf=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String s="";
+                        while((s=bf.readLine())!=null){
+                            response+=s;
+                        }
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(response.equals("updated")){
+                        findViewById(R.id.button2).setBackgroundColor(Color.RED);
+                        Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
+                        value2=0;
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                        findViewById(R.id.button2).setBackgroundColor(Color.BLUE);
+                    }
+
+                }else{
+                    pin="2";state="1";
+                    url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
+                    String response="";
+                    try {
+                        URL call = new URL(url);
+                        HttpURLConnection conn =(HttpURLConnection) call.openConnection();
+                        conn.setConnectTimeout(10000);
+                        BufferedReader bf=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String s="";
+                        while((s=bf.readLine())!=null){
+                            response+=s;
+                        }
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(response.equals("updated")){
+                        findViewById(R.id.button2).setBackgroundColor(Color.GREEN);
+                        Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
+                        value2=1;
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                        findViewById(R.id.button2).setBackgroundColor(Color.BLUE);
+                    }
+                }
+            }
+        });
+
+        Button b3= (Button) findViewById(R.id.button3);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(value3 ==1){
+                    pin="3";state="0";
+                    url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
+                    String response="";
+                    try {
+                        URL call = new URL(url);
+                        HttpURLConnection conn =(HttpURLConnection) call.openConnection();
+                        conn.setConnectTimeout(10000);
+                        BufferedReader bf=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String s="";
+                        while((s=bf.readLine())!=null){
+                            response+=s;
+                        }
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(response.equals("updated")){
+                        findViewById(R.id.button3).setBackgroundColor(Color.RED);
+                        Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
+                        value3=0;
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                        findViewById(R.id.button3).setBackgroundColor(Color.BLUE);
+                    }
+
+                }else{
+                    pin="3";state="1";
+                    url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
+                    String response="";
+                    try {
+                        URL call = new URL(url);
+                        HttpURLConnection conn =(HttpURLConnection) call.openConnection();
+                        conn.setConnectTimeout(10000);
+                        BufferedReader bf=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String s="";
+                        while((s=bf.readLine())!=null){
+                            response+=s;
+                        }
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(response.equals("updated")){
+                        findViewById(R.id.button3).setBackgroundColor(Color.GREEN);
+                        Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
+                        value3=1;
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                        findViewById(R.id.button3).setBackgroundColor(Color.BLUE);
+                    }
+                }
+            }
+        });
+
+        Button b4= (Button) findViewById(R.id.button4);
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(value4 ==1){
+                    pin="4";state="0";
+                    url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
+                    String response="";
+                    try {
+                        URL call = new URL(url);
+                        HttpURLConnection conn =(HttpURLConnection) call.openConnection();
+                        conn.setConnectTimeout(10000);
+                        BufferedReader bf=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String s="";
+                        while((s=bf.readLine())!=null){
+                            response+=s;
+                        }
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(response.equals("updated")){
+                        findViewById(R.id.button4).setBackgroundColor(Color.RED);
+                        Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
+                        value4=0;
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                        findViewById(R.id.button4).setBackgroundColor(Color.BLUE);
+                    }
+
+                }else{
+                    pin="4";state="1";
+                    url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
+                    String response="";
+                    try {
+                        URL call = new URL(url);
+                        HttpURLConnection conn =(HttpURLConnection) call.openConnection();
+                        conn.setConnectTimeout(10000);
+                        BufferedReader bf=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String s="";
+                        while((s=bf.readLine())!=null){
+                            response+=s;
+                        }
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(response.equals("updated")){
+                        findViewById(R.id.button4).setBackgroundColor(Color.GREEN);
+                        Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
+                        value4=1;
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Not Updated", Toast.LENGTH_SHORT).show();
+                        findViewById(R.id.button4).setBackgroundColor(Color.BLUE);
+                    }
+                }
+            }
+        });
 
 
      }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
