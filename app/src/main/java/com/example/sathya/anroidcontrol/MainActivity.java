@@ -21,7 +21,8 @@ import java.net.URL;
 
 public class MainActivity extends Activity {
     String res="",pin="",state="",url="";
-    String ip="http://www.remoteelectric.t15.org/";
+    String ip="http://androidelectriccontrol.netne.net/";
+    //String ip="http://www.remoteelectric.t15.org/";
     int value1=1,value2=1,value3=1,value4=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +33,7 @@ public class MainActivity extends Activity {
         StrictMode.setThreadPolicy(policy);
 
 
-        //url= "http://10.67.102.213/andriod/getstatus.php";
-        url= "http://www.remoteelectric.t15.org/getstatus.php";
+        url= ip+"getstatus.php";
         HttpURLConnection conn = null;
 
         try {
@@ -100,7 +100,8 @@ public class MainActivity extends Activity {
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if(response.equals("updated")){
+                    String[] resp=response.split("`");
+                    if(resp[0].equals("updated")){
                         findViewById(R.id.button).setBackgroundColor(Color.RED);
                         Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                         value1=0;
@@ -125,7 +126,8 @@ public class MainActivity extends Activity {
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if(response.equals("updated")){
+                    String[] resp=response.split("`");
+                    if(resp[0].equals("updated")){
                         findViewById(R.id.button).setBackgroundColor(Color.GREEN);
                         Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                         value1=1;
@@ -157,7 +159,8 @@ public class MainActivity extends Activity {
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if(response.equals("updated")){
+                    String[] resp=response.split("`");
+                    if(resp[0].equals("updated")){
                         findViewById(R.id.button2).setBackgroundColor(Color.RED);
                         Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                         value2=0;
@@ -182,7 +185,8 @@ public class MainActivity extends Activity {
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if(response.equals("updated")){
+                    String[] resp=response.split("`");
+                    if(resp[0].equals("updated")){
                         findViewById(R.id.button2).setBackgroundColor(Color.GREEN);
                         Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                         value2=1;
@@ -214,7 +218,8 @@ public class MainActivity extends Activity {
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if(response.equals("updated")){
+                    String[] resp=response.split("`");
+                    if(resp[0].equals("updated")){
                         findViewById(R.id.button3).setBackgroundColor(Color.RED);
                         Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                         value3=0;
@@ -239,7 +244,8 @@ public class MainActivity extends Activity {
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if(response.equals("updated")){
+                    String[] resp=response.split("`");
+                    if(resp[0].equals("updated")){
                         findViewById(R.id.button3).setBackgroundColor(Color.GREEN);
                         Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                         value3=1;
@@ -271,7 +277,8 @@ public class MainActivity extends Activity {
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if(response.equals("updated")){
+                    String[] resp=response.split("`");
+                    if(resp[0].equals("updated")){
                         findViewById(R.id.button4).setBackgroundColor(Color.RED);
                         Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                         value4=0;
@@ -296,7 +303,8 @@ public class MainActivity extends Activity {
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if(response.equals("updated")){
+                    String[] resp=response.split("`");
+                    if(resp[0].equals("updated")){
                         findViewById(R.id.button4).setBackgroundColor(Color.GREEN);
                         Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                         value4=1;
