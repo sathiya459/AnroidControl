@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(value1 ==1){
-                    pin="1";state="0";
+                    pin="0";state="0";
                     url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
                     String response="";
                     try {
@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
                     }
 
                 }else{
-                    pin="1";state="1";
+                    pin="0";state="1";
                     url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
                     String response="";
                     try {
@@ -144,7 +144,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(value2 ==1){
-                    pin="2";state="0";
+                    pin="1";state="0";
                     url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
                     String response="";
                     try {
@@ -170,7 +170,7 @@ public class MainActivity extends Activity {
                     }
 
                 }else{
-                    pin="2";state="1";
+                    pin="1";state="1";
                     url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
                     String response="";
                     try {
@@ -203,7 +203,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(value3 ==1){
-                    pin="3";state="0";
+                    pin="2";state="0";
                     url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
                     String response="";
                     try {
@@ -229,7 +229,7 @@ public class MainActivity extends Activity {
                     }
 
                 }else{
-                    pin="3";state="1";
+                    pin="2";state="1";
                     url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
                     String response="";
                     try {
@@ -262,7 +262,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 if(value4 ==1){
-                    pin="4";state="0";
+                    pin="3";state="0";
                     url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
                     String response="";
                     try {
@@ -288,7 +288,7 @@ public class MainActivity extends Activity {
                     }
 
                 }else{
-                    pin="4";state="1";
+                    pin="3";state="1";
                     url=ip+"updatefromandroid.php?pin="+pin+"&state="+state;
                     String response="";
                     try {
